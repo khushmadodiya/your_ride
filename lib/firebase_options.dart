@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCGw4T-WhitmwrnCJXxW1UIcE80oj3RlpM',
-    appId: '1:137432503872:web:3c52d2d1ede78f78c5f1a5',
-    messagingSenderId: '137432503872',
-    projectId: 'your-ride-60e30',
-    authDomain: 'your-ride-60e30.firebaseapp.com',
-    storageBucket: 'your-ride-60e30.appspot.com',
-    measurementId: 'G-YE06D6VDKZ',
+    apiKey: 'AIzaSyCCKXy3kN7fd1162Z95-OXkFVYd9VEwDzA',
+    appId: '1:991070457794:web:b2a884b283728f3481905b',
+    messagingSenderId: '991070457794',
+    projectId: 'your-ride-18dfe',
+    authDomain: 'your-ride-18dfe.firebaseapp.com',
+    storageBucket: 'your-ride-18dfe.appspot.com',
+    measurementId: 'G-9731N7CBS1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBqnQOBbjYzJdRQpWfHorfRPQvUzcxGdKY',
-    appId: '1:137432503872:android:b7dcce9216b948dfc5f1a5',
-    messagingSenderId: '137432503872',
-    projectId: 'your-ride-60e30',
-    storageBucket: 'your-ride-60e30.appspot.com',
+    apiKey: 'AIzaSyANranB44CDw8hU-d31qcVGuzJucBRBqNc',
+    appId: '1:991070457794:android:29d1a690a14a3f1081905b',
+    messagingSenderId: '991070457794',
+    projectId: 'your-ride-18dfe',
+    storageBucket: 'your-ride-18dfe.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDC8nku5AnoFY3S_62QOVO4w1tGeSowFV0',
-    appId: '1:137432503872:ios:597d4529e35b0688c5f1a5',
-    messagingSenderId: '137432503872',
-    projectId: 'your-ride-60e30',
-    storageBucket: 'your-ride-60e30.appspot.com',
+    apiKey: 'AIzaSyCqLwtRHrbxsO-DuJA500hpbW-yQVbS_vo',
+    appId: '1:991070457794:ios:eb1540342c03d12781905b',
+    messagingSenderId: '991070457794',
+    projectId: 'your-ride-18dfe',
+    storageBucket: 'your-ride-18dfe.appspot.com',
     iosBundleId: 'com.example.yourRide',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDC8nku5AnoFY3S_62QOVO4w1tGeSowFV0',
-    appId: '1:137432503872:ios:70d1341942c5069fc5f1a5',
-    messagingSenderId: '137432503872',
-    projectId: 'your-ride-60e30',
-    storageBucket: 'your-ride-60e30.appspot.com',
+    apiKey: 'AIzaSyCqLwtRHrbxsO-DuJA500hpbW-yQVbS_vo',
+    appId: '1:991070457794:ios:71041df1561a97cb81905b',
+    messagingSenderId: '991070457794',
+    projectId: 'your-ride-18dfe',
+    storageBucket: 'your-ride-18dfe.appspot.com',
     iosBundleId: 'com.example.yourRide.RunnerTests',
   );
 }

@@ -1,10 +1,15 @@
 
 
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:your_ride/globle/globle.dart';
+import 'package:your_ride/screens/login%20scrren.dart';
+import 'package:your_ride/screens/main%20screen.dart';
 
 class register extends StatefulWidget{
   @override
@@ -12,8 +17,7 @@ class register extends StatefulWidget{
 }
 
 class _registerState extends State<register> {
-  Color dark = Colors.black45;
-  Color light = Colors.black12;
+
 
   final nameTextEditingController = TextEditingController();
   final emailTextEditingController = TextEditingController();
@@ -24,6 +28,38 @@ class _registerState extends State<register> {
   bool _passwordvisibal =false;
 
   final _formkey =GlobalKey<FormState>();
+  void _submit()async{
+ if(_formkey.currentState!.validate()) {
+   await firebaseAuth.createUserWithEmailAndPassword(
+       email: emailTextEditingController.text.trim(),
+       password: passwordTextEditingController.text.trim()
+   ).then((auth) async {
+     currentUser = auth.user;
+     if (currentUser != null) {
+       Map userMap = {
+         "id": currentUser!.uid,
+         "name": nameTextEditingController.text.trim(),
+         "email": emailTextEditingController.text.trim(),
+         "address": addressTextEditingController.text.trim(),
+         "phone": phoneTextEditingController.text.trim(),
+       };
+       DatabaseReference userRef = FirebaseDatabase.instance.ref().child('user');
+       userRef.child(currentUser!.uid).set(userMap);
+     }
+     await Fluttertoast.showToast(msg: "succcessfully Register");
+     Navigator.push(
+         context, MaterialPageRoute(builder: (Context) => logIn()));
+   }).catchError((errorMessage) {
+     Fluttertoast.showToast(msg: "Error occured: \n $errorMessage");
+     print(errorMessage);
+   });
+ }
+   else{
+     Fluttertoast.showToast(msg: "Not all fields are valid");
+   }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     bool darkTheme = MediaQuery.of(context).platformBrightness == Brightness.dark;
@@ -53,6 +89,7 @@ class _registerState extends State<register> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Form(
+                      key:_formkey,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,10 +100,7 @@ class _registerState extends State<register> {
                             ],
                             decoration: InputDecoration(
                               hintText: "Name",
-                              hintStyle: TextStyle(
-                                color: Colors.grey.shade800,
-                                fontSize: 20
-                              ),
+
                               filled: true,
                               fillColor: darkTheme ? Colors.black26 : Colors.black12,
                               border: OutlineInputBorder(
@@ -136,7 +170,7 @@ class _registerState extends State<register> {
                               emailTextEditingController.text =text;
                             }),
                           ),
-                          SizedBox(height: 15,),
+                          SizedBox(height: 20,),
                           IntlPhoneField(
                             showCountryFlag: true,
                             dropdownIcon: Icon(Icons.arrow_drop_down,color: darkTheme ? Colors.amber.shade400: Colors.grey,),
@@ -319,8 +353,39 @@ class _registerState extends State<register> {
 
                             ),
                               onPressed: (){
-
-                          }, child: Text("Register"))
+                                   _submit();
+                          }, child: Text("Register"),
+                            
+                          
+                          ),
+                          SizedBox(height: 20,),
+                          GestureDetector(
+                            onTap: (){
+                            },
+                            child: Text(
+                              'Forgort password',style: TextStyle(color: darkTheme ? Colors.amber.shade400 : Colors.blue
+                            ),
+                            ),
+                          ),
+                          SizedBox(height: 20,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("have an account",
+                                style:TextStyle(color: Colors.grey,fontSize: 15) ,),
+                              SizedBox(width: 5,),
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>logIn()));
+                                },
+                                child: Text(
+                                  'Log in',style: TextStyle(fontSize: 15,
+                                color: darkTheme ? Colors.amber.shade400 : Colors.blue ),
+                                ),
+                              )
+                            ],
+                          )
+                          
 
                         ],
                       ),
@@ -334,4 +399,5 @@ class _registerState extends State<register> {
     );
 
   }
+
 }

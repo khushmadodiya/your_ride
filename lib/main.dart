@@ -4,10 +4,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:your_ride/Themes/thems.dart';
 import 'package:your_ride/screens/main%20screen.dart';
 import 'package:your_ride/screens/resister%20screen.dart';
+import 'package:your_ride/splesh%20screen/splesh%20screen.dart';
 import 'firebase_options.dart';
 
 
-void main()async{
+Future<void> main()async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: mytheme.lightTheme,
       darkTheme: mytheme.darkTheme,
       debugShowCheckedModeBanner: false                                                                                                                                                     ,
-      home: register(),
+      home:splesh(),
     );
   }
 }

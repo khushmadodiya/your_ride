@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "137432503872",
-    "project_id": "your-ride-60e30",
-    "storage_bucket": "your-ride-60e30.appspot.com"
+    "project_number": "991070457794",
+    "project_id": "your-ride-18dfe",
+    "storage_bucket": "your-ride-18dfe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:137432503872:android:b7dcce9216b948dfc5f1a5",
+        "mobilesdk_app_id": "1:991070457794:android:29d1a690a14a3f1081905b",
         "android_client_info": {
           "package_name": "com.example.your_ride"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "137432503872-s2eq062dfjh8jsnu6ieqh3sulo66scsb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBqnQOBbjYzJdRQpWfHorfRPQvUzcxGdKY"
+          "current_key": "AIzaSyANranB44CDw8hU-d31qcVGuzJucBRBqNc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "137432503872-s2eq062dfjh8jsnu6ieqh3sulo66scsb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
