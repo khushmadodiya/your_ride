@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'package:your_ride/Infohandler/app_info.dart';
 import 'package:your_ride/Themes/thems.dart';
 import 'package:your_ride/screens/main%20screen.dart';
 import 'package:your_ride/screens/resister%20screen.dart';
+import 'package:your_ride/screens/search_places_screen.dart';
 import 'package:your_ride/splesh%20screen/splesh%20screen.dart';
 import 'firebase_options.dart';
 
@@ -22,13 +25,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.system,
-      theme: mytheme.lightTheme,
-      darkTheme: mytheme.darkTheme,
-      debugShowCheckedModeBanner: false                                                                                                                                                     ,
-      home:splesh(),
+    return ChangeNotifierProvider(
+        create:(context)=>AppInfo(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        themeMode: ThemeMode.system,
+        theme: mytheme.lightTheme,
+        darkTheme: mytheme.darkTheme,
+        debugShowCheckedModeBanner: false                                                                                                                                                     ,
+        home:splesh(),
+      ),
     );
   }
 }
